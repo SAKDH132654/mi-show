@@ -1,5 +1,5 @@
 <template>
   <div class="About">
-    <h2> who are you ?</h2>
+    <h2>个人中心</h2>
   </div>
 </template>

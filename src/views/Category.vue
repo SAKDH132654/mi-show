@@ -7,12 +7,12 @@
 		</div>
 		<div class="count">
 			<van-row>
-				<van-col span="6">
+				<van-col span="8">
 					<van-sidebar v-model="activeKey">
 						<van-sidebar-item :title="item.category_name"  v-for="item in category.data" :key="item.category_name"/>
 					</van-sidebar>
 				</van-col>
-				<van-col span="18">
+				<van-col span="16">
 					<div v-for="(item,index) in category.data" v-show="activeKey==index">
 						
 						<div v-for="item1 in item.category_list">
@@ -30,6 +30,7 @@
 										v-for="item2 in item1.body.items"
 										:icon="item2.img_url_webp"
 										:text="item2.product_name"
+										@click="getProduct(item2)"
 									/>
 								</van-grid>
 							</div>
@@ -70,8 +71,13 @@ export default{
 	    },
 	    onClickRight() {
 			this.$toast('搜索');
-	    }
-	}
+	    },
+		getProduct(item2){
+			this.$router.push(`/product/${item2.action.path}`)
+		}
+		
+	},
+	
 }
 </script>
 

@@ -26,3 +26,16 @@
 .full{
 	width: 100%;
 }
+
+/* 详情 */
+.back{
+	position: fixed;
+	left: 10px;
+	top: 10px;
+	
+}
+/* 购物车 */
+.table{
+	text-align: center;
+	margin: 0 auto;
+}
