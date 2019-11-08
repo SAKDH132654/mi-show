@@ -1,7 +1,7 @@
 <template>
 	<div class="category">
 		<div class="header">
-			<van-nav-bar title="分类" left-arrow @click-left="onClickLeft" @click-right="onClickRight">
+			<van-nav-bar style="background-color: #ebebeb;" title="分类" left-arrow @click-left="onClickLeft" @click-right="onClickRight">
 				<van-icon name="search" slot="right" />
 			</van-nav-bar>
 		</div>

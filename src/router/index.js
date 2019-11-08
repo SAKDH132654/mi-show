@@ -4,7 +4,13 @@ import Home from '../views/Home.vue'
 import About from '../views/About.vue'
 import Category from '../views/Category.vue'
 import Product from '../views/Product.vue'
+
 import Carts from '../views/Carts.vue'
+import Login from '../views/Login.vue'
+
+import Carts1 from '../views/Carts1.vue'
+import Login1 from '../views/Login1.vue'
+
 Vue.use(VueRouter)
 
 const routes = [
@@ -17,11 +23,35 @@ const routes = [
 		}
 	},
 	{
+		path: '/login1',
+		name: 'login1',
+		component: Login1,
+		meta:{
+			show:true
+		}
+	},
+	{
+		path: '/carts1',
+		name: 'carts1',
+		component: Carts1,
+		meta:{
+			show:true
+		}
+	},
+	{
 		path: '/carts',
 		name: 'carts',
 		component: Carts,
 		meta:{
 			show:true
+		}
+	},
+	{
+		path: '/login',
+		name: 'login',
+		component: Login,
+		meta:{
+			show:false
 		}
 	},
 	{

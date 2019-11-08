@@ -6,8 +6,10 @@
 	<van-tabbar v-show="$route.meta.show==true" v-model="active">
 		<van-tabbar-item to="/" icon="home-o">首页</van-tabbar-item>
 		<van-tabbar-item to="/Category" icon="search">分类</van-tabbar-item>
-		<van-tabbar-item to="/Carts" icon="shopping-cart-o">购物车</van-tabbar-item>
-		<van-tabbar-item to="/about" icon="friends-o">我的</van-tabbar-item>
+		<van-tabbar-item v-if="this.$store.state.showa" to="/Carts" icon="shopping-cart-o">购物车</van-tabbar-item>
+		<van-tabbar-item v-if="this.$store.state.showa" to="/about" icon="friends-o">我的</van-tabbar-item>
+		<van-tabbar-item v-if="!this.$store.state.showa" to="/Carts1" icon="shopping-cart-o">购物车</van-tabbar-item>
+		<van-tabbar-item v-if="!this.$store.state.showa" to="/Login1" icon="friends-o">我的</van-tabbar-item>
 	</van-tabbar>
 	
 	

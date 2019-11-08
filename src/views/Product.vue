@@ -13,7 +13,7 @@
 			<van-goods-action >
 				<van-goods-action-icon icon="wap-home-o" text="首页"  @click="gohome()"/>
 				<van-goods-action-icon icon="cart-o" text="购物车" :info="num" @click="gocarts()"/>
-				<van-goods-action-button type="warning" text="加入购物车" />
+				<van-goods-action-button type="warning" text="加入购物车" @click="addnum()" />
 				<van-goods-action-button type="danger" text="立即抢购" />
 			</van-goods-action>
 		
@@ -28,7 +28,7 @@
 		data(){
 			return{
 				"product":product,
-				num:this.$store.state.goods[0].num
+				num:1
 			}
 		},
 		methods:{
@@ -37,6 +37,12 @@
 			},
 			gocarts(){
 				this.$router.push(`/Carts`);
+			},
+			addnum(){
+				
+				this.$data.num++
+				
+				
 			}
 		}
 	

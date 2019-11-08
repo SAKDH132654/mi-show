@@ -1,32 +1,61 @@
 <template>
-	<div class="carts">
-		<div class="header">
-			<van-nav-bar title="购物车" left-arrow @click-left="onClickLeft" @click-right="onClickRight">
-				<van-icon name="search" slot="right" />
-			</van-nav-bar>
-		</div>
-		<div class="count">
-			<table border="2px" cellpadding="20px" cellspacing="5px" class="table">
-				<tr> <th>商品id</th> <th>商品名字</th> <th>商品价格</th> <th>商品数量</th> <th>商品操作</th> </tr>
-				<tr> <td>100</td> <td>手机</td> <td>888</td> <td>2</td> <td><button>移除</button></td> </tr>
-			</table>
-		</div>
-			
+	<div class="shopping">
+		<van-nav-bar style="background-color: #ebebeb;" title="购物车" left-arrow  @click-left="onClickLeft" @click-right="onClickRight">
+			<van-icon name="search" slot="right" />
+		</van-nav-bar>
+		<van-row style="width: 100%;height: 50px;"  @click="login">
+			<van-col style="position: relative;top: 15px;" span="12">登录后享受更多优惠</van-col>
+			<van-col style="position: relative;top: 15px;" span="12">去登录 <van-icon name="arrow" /> </van-col>
+		</van-row>
+		<van-row>
+			<van-col style="background-color:#ebebeb;" span="24">
+				<van-icon size=35 name="shopping-cart-o" />
+				<span style="position: relative;top: -10px;">购物车还是空的</span>
+				<van-button style="float: right;" plain type="primary"@click="goshow">去逛逛</van-button>
+			</van-col>
+		</van-row>
+		<van-row>
+			<van-col span="24"><img width="100%" src="//i8.mifile.cn/b2c-mimall-media/e95ade2750a7fde92369b416c7d3176d.jpg" alt=""></van-col>
+		</van-row>
+		<van-row gutter="2">
+			<van-col span="12" v-for="item in carts.data.recom_list" >
+				<img :src="item.image_url" style="width: 100%;" />
+				<p style="color: red;">￥{{item.market_price}}</p>
+				<p>{{item.name}}</p>
+			</van-col>
+		</van-row>
+		<br>
+		<br>
+		<br>
 	</div>
+	
+	
 </template>
+
 <script>
+	import {carts} from '../data.js'
 	import Vue from 'vue';
 	import { Toast } from 'vant';
 	
 	Vue.use(Toast);
-	
 	export default{
+		data(){
+			return{
+				carts:carts
+			}
+		},
 		methods:{
 			onClickLeft(){
-				this.$router.go(-1);
+				this.$router.go(-1)
 			},
 			onClickRight(){
 				this.$toast('搜索');
+			},
+			login(){
+				this.$router.push(`/Login`)
+			},
+			goshow(){
+				this.$router.push(`/`)
 			}
 		}
 	}

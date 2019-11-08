@@ -5,6 +5,7 @@ Vue.use(Vuex)
 
 export default new Vuex.Store({
 	state: {
+		"showa":true,
 		goods:[
 			{
 				id:10000110,
@@ -13,6 +14,9 @@ export default new Vuex.Store({
 		]
 	},
 	mutations: {
+		setshowa(state,log){
+			state.showa=log
+		}
 	},
 	actions: {
 	},
